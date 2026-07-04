@@ -1,0 +1,41 @@
+name: Sync OpenAPI Spec
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Fetch Upstream Spec
+        run: curl -sSf https://fr24api.flightradar24.com/documentation/Flightradar24-API.yaml -o openapi-original.yaml
+
+      - name: Downgrade Spec to OpenAPI 3.0
+        run: npx --yes @apiture/openapi-down-convert --input openapi-original.yaml --output openapi.yaml
+
+      - name: Regenerate Client
+        run: go generate ./...
+
+      - name: Open Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: sync OpenAPI spec"
+          branch: sync-openapi-spec
+          delete-branch: true
+          title: "chore: sync OpenAPI spec"
+          body: |
+            Pulls the latest Flightradar24 OpenAPI spec and regenerates the Go client.
+
+            Opened automatically by the daily `Sync OpenAPI Spec` workflow.
