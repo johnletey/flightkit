@@ -2,7 +2,7 @@ name: Sync OpenAPI Spec
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -20,10 +20,7 @@ jobs:
           go-version-file: go.mod
 
       - name: Fetch Upstream Spec
-        run: curl -sSf https://fr24api.flightradar24.com/documentation/Flightradar24-API.yaml -o openapi-original.yaml
-
-      - name: Downgrade Spec to OpenAPI 3.0
-        run: npx --yes @apiture/openapi-down-convert --input openapi-original.yaml --output openapi.yaml
+        run: curl -sSf https://fr24api.flightradar24.com/documentation/Flightradar24-API.yaml -o openapi.yaml
 
       - name: Regenerate Client
         run: go generate ./...
