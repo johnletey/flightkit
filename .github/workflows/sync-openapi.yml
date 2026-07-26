@@ -43,6 +43,7 @@ jobs:
       - uses: actions/setup-go@v6
         with:
           go-version-file: ${{ matrix.provider }}/go.mod
+          cache-dependency-path: ${{ matrix.provider }}/go.sum
 
       - name: Fetch Upstream Spec
         run: |
