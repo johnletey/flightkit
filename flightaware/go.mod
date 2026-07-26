@@ -1,4 +1,4 @@
-module github.com/johnletey/fr24api
+module github.com/johnletey/flightkit/flightaware
 
 go 1.26
 

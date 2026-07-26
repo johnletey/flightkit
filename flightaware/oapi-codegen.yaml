@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/v2.7.1/configuration-schema.json
+package: flightaware
+generate:
+  client: true
+  models: true
+  server-urls: true
+output: openapi.gen.go

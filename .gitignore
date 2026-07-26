@@ -1,1 +1,6 @@
-openapi*.yaml
+airnavradar/openapi.json
+flightaware/openapi.yaml
+fr24/openapi.yaml
+opensky/openapi.yaml
+opensky/opensky-*.yml
+planefinder/openapi.json
