@@ -1606,6 +1606,9 @@ type GetTafResponse struct {
 
 // RtAircraftPositionQuery defines model for RtAircraftPositionQuery.
 type RtAircraftPositionQuery struct {
+	// AircraftClasses Example: ["AIRLINER","CARGO"]
+	AircraftClasses *[]string `json:"aircraftClasses,omitempty"`
+
 	// AircraftTypes Example: ["B772"]
 	AircraftTypes *[]string `json:"aircraftTypes,omitempty"`
 
