@@ -3,5 +3,4 @@ package: flightaware
 generate:
   client: true
   models: true
-  server-urls: true
 output: openapi.gen.go

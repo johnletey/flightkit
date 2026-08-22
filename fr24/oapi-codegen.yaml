@@ -3,5 +3,4 @@ package: fr24
 generate:
   client: true
   models: true
-  server-urls: true
 output: openapi.gen.go

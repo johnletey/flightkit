@@ -18,44 +18,6 @@ import (
 	openapi_types "github.com/oapi-codegen/runtime/types"
 )
 
-// ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable defines model for env.
-type ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable string
-
-// Defines values for ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable.
-const (
-	ServerUrlHttpsEnvFlightawareComaeroapiEnvVariableAeroapi ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable = "aeroapi"
-)
-
-// Valid indicates whether the value is a known member of the ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable enum.
-func (e ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable) Valid() bool {
-	switch e {
-	case ServerUrlHttpsEnvFlightawareComaeroapiEnvVariableAeroapi:
-		return true
-	default:
-		return false
-	}
-}
-
-// ServerUrlHttpsEnvFlightawareComaeroapiEnvVariableDefault is the default choice, for the accepted values for the `env` variable
-const ServerUrlHttpsEnvFlightawareComaeroapiEnvVariableDefault ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable = ServerUrlHttpsEnvFlightawareComaeroapiEnvVariableAeroapi
-
-// NewServerUrlHttpsEnvFlightawareComaeroapi constructs the Server URL for , with the provided variables.
-func NewServerUrlHttpsEnvFlightawareComaeroapi(env ServerUrlHttpsEnvFlightawareComaeroapiEnvVariable) (string, error) {
-	if !env.Valid() {
-		return "", fmt.Errorf("`%v` is not one of the accepted values for the `env` variable", env)
-	}
-
-	u := "https://{env}.flightaware.com/aeroapi"
-
-	u = strings.ReplaceAll(u, "{env}", string(env))
-
-	if strings.Contains(u, "{") || strings.Contains(u, "}") {
-		return "", fmt.Errorf("after mapping variables, there were still `{` or `}` characters in the string: %#v", u)
-	}
-
-	return u, nil
-}
-
 // Defines values for GetDelaysForAllAirports200ApplicationJSONCharsetUTF8ResponseBodyDelaysColor.
 const (
 	GetDelaysForAllAirports200ApplicationJSONCharsetUTF8ResponseBodyDelaysColorGreen  GetDelaysForAllAirports200ApplicationJSONCharsetUTF8ResponseBodyDelaysColor = "green"

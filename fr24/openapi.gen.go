@@ -16,9 +16,6 @@ import (
 	"github.com/oapi-codegen/runtime"
 )
 
-// ServerUrlProductionServer defines the Server URL for Production server
-const ServerUrlProductionServer = "https://fr24api.flightradar24.com"
-
 // Defines values for Sort.
 const (
 	SortAsc  Sort = "asc"

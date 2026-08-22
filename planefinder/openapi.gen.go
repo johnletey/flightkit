@@ -15,9 +15,6 @@ import (
 	"github.com/oapi-codegen/runtime"
 )
 
-// ServerUrlHttpsapiPlanefinderNetapi defines the Server URL for https://api.planefinder.net/api
-const ServerUrlHttpsapiPlanefinderNetapi = "https://api.planefinder.net/api"
-
 // Defines values for PositionsDataSource.
 const (
 	PositionsDataSourceADSB       PositionsDataSource = "ADSB"

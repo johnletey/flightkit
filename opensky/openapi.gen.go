@@ -15,9 +15,6 @@ import (
 	"github.com/oapi-codegen/runtime"
 )
 
-// ServerUrlOpenSkyNetworkRESTAPI defines the Server URL for OpenSky Network REST API
-const ServerUrlOpenSkyNetworkRESTAPI = "https://opensky-network.org/api"
-
 // Defines values for GetStateVectorsAllParamsExtended.
 const (
 	N0 GetStateVectorsAllParamsExtended = 0

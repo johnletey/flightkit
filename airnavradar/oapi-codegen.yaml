@@ -3,7 +3,6 @@ package: airnavradar
 generate:
   client: true
   models: true
-  server-urls: true
 output: openapi.gen.go
 output-options:
   # The spec already has schemas whose names collide with the

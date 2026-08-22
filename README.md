@@ -10,7 +10,11 @@ Go clients for flight tracking APIs.
 | [`opensky`](opensky)         | [OpenSky Network](https://opensky-network.org) |
 | [`planefinder`](planefinder) | [Plane Finder](https://planefinder.net)        |
 
-Every package has a `WithAuthentication` option that takes your API credentials for that network.
+Every package exposes a `ServerURL` constant for the provider's API base URL, and packages whose API needs credentials have a `WithAuthentication` option.
+
+```go
+client, err := fr24.NewClientWithResponses(fr24.ServerURL, fr24.WithAuthentication(apiKey))
+```
 
 If you're missing a provider, open an issue or a pull request.
 

@@ -17,9 +17,6 @@ import (
 	"github.com/oapi-codegen/runtime"
 )
 
-// ServerUrlHttpsapiAirnavradarComv2 defines the Server URL for https://api.airnavradar.com/v2
-const ServerUrlHttpsapiAirnavradarComv2 = "https://api.airnavradar.com/v2"
-
 // Defines values for ApiFlightArrivalDelayDetail.
 const (
 	ApiFlightArrivalDelayDetailARVS ApiFlightArrivalDelayDetail = "ARVS"
