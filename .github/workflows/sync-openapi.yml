@@ -16,6 +16,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - provider: adsblol
+            spec_url: https://api.adsb.lol/api/openapi.json
+            spec_file: openapi.json
           - provider: airnavradar
             spec_url: https://www.airnavradar.com/api/openapi
             spec_file: openapi.json

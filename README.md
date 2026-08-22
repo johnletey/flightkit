@@ -4,6 +4,7 @@ Go clients for flight tracking APIs.
 
 | Package                      | Network                                        |
 | ---------------------------- | ---------------------------------------------- |
+| [`adsblol`](adsblol)         | [adsb.lol](https://adsb.lol)                   |
 | [`airnavradar`](airnavradar) | [AirNav Radar](https://www.airnavradar.com)    |
 | [`flightaware`](flightaware) | [FlightAware](https://www.flightaware.com)     |
 | [`fr24`](fr24)               | [Flightradar24](https://www.flightradar24.com) |
