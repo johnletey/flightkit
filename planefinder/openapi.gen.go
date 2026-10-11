@@ -18,6 +18,7 @@ import (
 // Defines values for PositionsDataSource.
 const (
 	PositionsDataSourceADSB       PositionsDataSource = "ADSB"
+	PositionsDataSourceESTIMATED  PositionsDataSource = "ESTIMATED"
 	PositionsDataSourceFLARM      PositionsDataSource = "FLARM"
 	PositionsDataSourceMLAT       PositionsDataSource = "MLAT"
 	PositionsDataSourcePILOTAWARE PositionsDataSource = "PILOTAWARE"
@@ -29,6 +30,8 @@ const (
 func (e PositionsDataSource) Valid() bool {
 	switch e {
 	case PositionsDataSourceADSB:
+		return true
+	case PositionsDataSourceESTIMATED:
 		return true
 	case PositionsDataSourceFLARM:
 		return true
@@ -135,6 +138,7 @@ func (e GetHistoricAircraftPositionsParamsClass) Valid() bool {
 // Defines values for GetHistoricAircraftPositionsParamsDataSource.
 const (
 	GetHistoricAircraftPositionsParamsDataSourceADSB        GetHistoricAircraftPositionsParamsDataSource = "ADSB"
+	GetHistoricAircraftPositionsParamsDataSourceESTIMATED   GetHistoricAircraftPositionsParamsDataSource = "ESTIMATED"
 	GetHistoricAircraftPositionsParamsDataSourceFLARM       GetHistoricAircraftPositionsParamsDataSource = "FLARM"
 	GetHistoricAircraftPositionsParamsDataSourceLessThannil GetHistoricAircraftPositionsParamsDataSource = "<nil>"
 	GetHistoricAircraftPositionsParamsDataSourceMLAT        GetHistoricAircraftPositionsParamsDataSource = "MLAT"
@@ -147,6 +151,8 @@ const (
 func (e GetHistoricAircraftPositionsParamsDataSource) Valid() bool {
 	switch e {
 	case GetHistoricAircraftPositionsParamsDataSourceADSB:
+		return true
+	case GetHistoricAircraftPositionsParamsDataSourceESTIMATED:
 		return true
 	case GetHistoricAircraftPositionsParamsDataSourceFLARM:
 		return true
@@ -207,6 +213,7 @@ func (e GetLiveAircraftPositionsParamsClass) Valid() bool {
 // Defines values for GetLiveAircraftPositionsParamsDataSource.
 const (
 	GetLiveAircraftPositionsParamsDataSourceADSB        GetLiveAircraftPositionsParamsDataSource = "ADSB"
+	GetLiveAircraftPositionsParamsDataSourceESTIMATED   GetLiveAircraftPositionsParamsDataSource = "ESTIMATED"
 	GetLiveAircraftPositionsParamsDataSourceFLARM       GetLiveAircraftPositionsParamsDataSource = "FLARM"
 	GetLiveAircraftPositionsParamsDataSourceLessThannil GetLiveAircraftPositionsParamsDataSource = "<nil>"
 	GetLiveAircraftPositionsParamsDataSourceMLAT        GetLiveAircraftPositionsParamsDataSource = "MLAT"
@@ -219,6 +226,8 @@ const (
 func (e GetLiveAircraftPositionsParamsDataSource) Valid() bool {
 	switch e {
 	case GetLiveAircraftPositionsParamsDataSourceADSB:
+		return true
+	case GetLiveAircraftPositionsParamsDataSourceESTIMATED:
 		return true
 	case GetLiveAircraftPositionsParamsDataSourceFLARM:
 		return true
@@ -279,6 +288,7 @@ func (e GetLiveAircraftPositionsExtendedParamsClass) Valid() bool {
 // Defines values for GetLiveAircraftPositionsExtendedParamsDataSource.
 const (
 	GetLiveAircraftPositionsExtendedParamsDataSourceADSB        GetLiveAircraftPositionsExtendedParamsDataSource = "ADSB"
+	GetLiveAircraftPositionsExtendedParamsDataSourceESTIMATED   GetLiveAircraftPositionsExtendedParamsDataSource = "ESTIMATED"
 	GetLiveAircraftPositionsExtendedParamsDataSourceFLARM       GetLiveAircraftPositionsExtendedParamsDataSource = "FLARM"
 	GetLiveAircraftPositionsExtendedParamsDataSourceLessThannil GetLiveAircraftPositionsExtendedParamsDataSource = "<nil>"
 	GetLiveAircraftPositionsExtendedParamsDataSourceMLAT        GetLiveAircraftPositionsExtendedParamsDataSource = "MLAT"
@@ -291,6 +301,8 @@ const (
 func (e GetLiveAircraftPositionsExtendedParamsDataSource) Valid() bool {
 	switch e {
 	case GetLiveAircraftPositionsExtendedParamsDataSourceADSB:
+		return true
+	case GetLiveAircraftPositionsExtendedParamsDataSourceESTIMATED:
 		return true
 	case GetLiveAircraftPositionsExtendedParamsDataSourceFLARM:
 		return true
@@ -314,22 +326,22 @@ type AirlineResource struct {
 	// AtcCallsign ATC voice callsign
 	//
 	// Examples: SPEEDBIRD
-	AtcCallsign string `json:"atcCallsign"`
+	AtcCallsign *string `json:"atcCallsign"`
 
 	// Country Country of registration
 	//
 	// Examples: United Kingdom
-	Country string `json:"country"`
+	Country *string `json:"country"`
 
 	// CountryCode ISO 3166-1 alpha-2 country code
 	//
 	// Examples: GB
-	CountryCode string `json:"countryCode"`
+	CountryCode *string `json:"countryCode"`
 
 	// Iata IATA airline code
 	//
 	// Examples: BA
-	Iata string `json:"iata"`
+	Iata *string `json:"iata"`
 
 	// Icao ICAO airline designator
 	//
@@ -339,7 +351,7 @@ type AirlineResource struct {
 	// Name Airline name
 	//
 	// Examples: British Airways
-	Name string `json:"name"`
+	Name *string `json:"name"`
 }
 
 // AirportResource defines model for AirportResource.
@@ -347,17 +359,17 @@ type AirportResource struct {
 	// City City name
 	//
 	// Examples: London
-	City string `json:"city"`
+	City *string `json:"city"`
 
 	// Country Country name
 	//
 	// Examples: United Kingdom
-	Country string `json:"country"`
+	Country *string `json:"country"`
 
 	// CountryCode ISO 3166-1 alpha-2 country code
 	//
 	// Examples: GB
-	CountryCode string `json:"countryCode"`
+	CountryCode *string `json:"countryCode"`
 
 	// Elevation Elevation (in feet)
 	//
@@ -387,7 +399,7 @@ type AirportResource struct {
 	// Name Full airport name
 	//
 	// Examples: Heathrow Airport
-	Name string `json:"name"`
+	Name *string `json:"name"`
 
 	// Timezone Timezone information for the airport
 	Timezone *struct {
@@ -459,11 +471,7 @@ type HistoricFlightPositionResource struct {
 	// Altitude Altitude in feet
 	//
 	// Examples: 37975
-	Altitude *int `json:"altitude"`
-
-	// DataSource Data source identifier
-	//
-	// Examples: ADSB
+	Altitude   *int                 `json:"altitude"`
 	DataSource *PositionsDataSource `json:"dataSource"`
 
 	// Heading Heading in degrees (0-360)
@@ -601,11 +609,7 @@ type HistoricPositionsResource struct {
 	// Class Aircraft class
 	//
 	// Examples: COMMERCIAL
-	Class *string `json:"class"`
-
-	// DataSource Data source identifier
-	//
-	// Examples: ADSB
+	Class      *string              `json:"class"`
 	DataSource *PositionsDataSource `json:"dataSource"`
 
 	// DepartureAirport Departure airport IATA code
@@ -799,7 +803,7 @@ type LiveExtendedPositionsResource struct {
 	// OperatorICAO ICAO operator code
 	//
 	// Examples: BAW
-	OperatorICAO string `json:"operatorICAO"`
+	OperatorICAO *string `json:"operatorICAO"`
 
 	// OutsideAirTemperature Outside air temperature in Celsius
 	//
@@ -947,7 +951,7 @@ type LivePositionsResource struct {
 	// OperatorICAO ICAO operator code
 	//
 	// Examples: BAW
-	OperatorICAO string `json:"operatorICAO"`
+	OperatorICAO *string `json:"operatorICAO"`
 
 	// Reg Aircraft registration (tail number)
 	//
@@ -1599,6 +1603,9 @@ type GetLiveAircraftPositionsParams struct {
 	Class      *GetLiveAircraftPositionsParamsClass      `form:"class,omitempty" json:"class,omitempty"`
 	DataSource *GetLiveAircraftPositionsParamsDataSource `form:"data_source,omitempty" json:"data_source,omitempty"`
 
+	// IncludeEstimated Include estimated traffic in the results. Charged at a higher credit rate.
+	IncludeEstimated *bool `form:"include_estimated,omitempty" json:"include_estimated,omitempty"`
+
 	// PerPage Number of results per page. Maximum is plan-dependent; requests above the limit are silently clamped.
 	PerPage *int `form:"per_page,omitempty" json:"per_page,omitempty"`
 
@@ -1654,6 +1661,9 @@ type GetLiveAircraftPositionsExtendedParams struct {
 	Type       *string                                           `form:"type,omitempty" json:"type,omitempty"`
 	Class      *GetLiveAircraftPositionsExtendedParamsClass      `form:"class,omitempty" json:"class,omitempty"`
 	DataSource *GetLiveAircraftPositionsExtendedParamsDataSource `form:"data_source,omitempty" json:"data_source,omitempty"`
+
+	// IncludeEstimated Include estimated traffic in the results. Charged at a higher credit rate.
+	IncludeEstimated *bool `form:"include_estimated,omitempty" json:"include_estimated,omitempty"`
 
 	// PerPage Number of results per page. Maximum is plan-dependent; requests above the limit are silently clamped.
 	PerPage *int `form:"per_page,omitempty" json:"per_page,omitempty"`
@@ -2810,6 +2820,18 @@ func NewGetLiveAircraftPositionsRequest(server string, params *GetLiveAircraftPo
 
 		}
 
+		if params.IncludeEstimated != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_estimated", *params.IncludeEstimated, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.PerPage != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "per_page", *params.PerPage, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
@@ -3047,6 +3069,18 @@ func NewGetLiveAircraftPositionsExtendedRequest(server string, params *GetLiveAi
 		if params.DataSource != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeEstimated != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_estimated", *params.IncludeEstimated, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
