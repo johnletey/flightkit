@@ -471,8 +471,12 @@ type HistoricFlightPositionResource struct {
 	// Altitude Altitude in feet
 	//
 	// Examples: 37975
-	Altitude   *int                 `json:"altitude"`
-	DataSource *PositionsDataSource `json:"dataSource"`
+	Altitude *int `json:"altitude"`
+
+	// DataSource Data source identifier
+	//
+	// Examples: ADSB
+	DataSource PositionsDataSource `json:"dataSource"`
 
 	// Heading Heading in degrees (0-360)
 	//
@@ -609,8 +613,12 @@ type HistoricPositionsResource struct {
 	// Class Aircraft class
 	//
 	// Examples: COMMERCIAL
-	Class      *string              `json:"class"`
-	DataSource *PositionsDataSource `json:"dataSource"`
+	Class *string `json:"class"`
+
+	// DataSource Data source identifier
+	//
+	// Examples: ADSB
+	DataSource PositionsDataSource `json:"dataSource"`
 
 	// DepartureAirport Departure airport IATA code
 	//
