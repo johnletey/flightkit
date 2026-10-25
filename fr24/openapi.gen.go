@@ -307,17 +307,20 @@ type FlightSummaryFull struct {
 	// Callsign Callsign used by Air Traffic Control to denote a specific flight (as sent by aircraft transponder).
 	Callsign *string `json:"callsign,omitempty"`
 
+	// Category Flight service type.
+	Category *string `json:"category,omitempty"`
+
 	// CircleDistance Great-circle distance between the first and last position (in km).
 	CircleDistance *float32 `json:"circle_distance,omitempty"`
 
-	// DatetimeLanded Datetime of landing in UTC (YYYY-MM-DDTHH:MM:SS).
+	// DatetimeLanded Datetime of landing in UTC (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	DatetimeLanded *string `json:"datetime_landed,omitempty"`
 
-	// DatetimeTakeoff Datetime of takeoff in UTC (YYYY-MM-DDTHH:MM:SS).
+	// DatetimeTakeoff Datetime of takeoff in UTC (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	DatetimeTakeoff *string `json:"datetime_takeoff,omitempty"`
 
 	// DestIata Destination airport IATA code.
@@ -340,9 +343,9 @@ type FlightSummaryFull struct {
 	// Examples: LEZL
 	DestIcaoActual *string `json:"dest_icao_actual,omitempty"`
 
-	// FirstSeen Datetime when the aircraft was first detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SS).
+	// FirstSeen Datetime when the aircraft was first detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	FirstSeen *string `json:"first_seen,omitempty"`
 
 	// Flight Commercial flight number.
@@ -350,7 +353,7 @@ type FlightSummaryFull struct {
 
 	// FlightEnded Flag indicating if the flight is live (currently tracked) or historical.
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	FlightEnded *bool `json:"flight_ended,omitempty"`
 
 	// FlightTime Duration of the flight from takeoff to landing in seconds.
@@ -362,9 +365,9 @@ type FlightSummaryFull struct {
 	// Hex 24-bit Mode-S identifier in hexadecimal format.
 	Hex *string `json:"hex,omitempty"`
 
-	// LastSeen Datetime when the aircraft was last detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SS).
+	// LastSeen Datetime when the aircraft was last detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	LastSeen *string `json:"last_seen,omitempty"`
 
 	// OperatingAs ICAO code of the airline carrier as derived from flight callsign.
@@ -405,14 +408,14 @@ type FlightSummaryLight struct {
 	// Callsign Callsign used by Air Traffic Control to denote a specific flight (as sent by aircraft transponder).
 	Callsign *string `json:"callsign,omitempty"`
 
-	// DatetimeLanded Datetime of landing in UTC (YYYY-MM-DDTHH:MM:SS).
+	// DatetimeLanded Datetime of landing in UTC (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	DatetimeLanded *string `json:"datetime_landed,omitempty"`
 
-	// DatetimeTakeoff Datetime of takeoff in UTC (YYYY-MM-DDTHH:MM:SS).
+	// DatetimeTakeoff Datetime of takeoff in UTC (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	DatetimeTakeoff *string `json:"datetime_takeoff,omitempty"`
 
 	// DestIcao Destination airport ICAO code.
@@ -420,9 +423,9 @@ type FlightSummaryLight struct {
 	// Examples: ESSA
 	DestIcao *string `json:"dest_icao,omitempty"`
 
-	// FirstSeen Datetime when the aircraft was first detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SS).
+	// FirstSeen Datetime when the aircraft was first detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	FirstSeen *string `json:"first_seen,omitempty"`
 
 	// Flight Commercial flight number.
@@ -430,7 +433,7 @@ type FlightSummaryLight struct {
 
 	// FlightEnded Flag indicating if the flight is live (currently tracked) or historical.
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	FlightEnded *bool `json:"flight_ended,omitempty"`
 
 	// Fr24Id Unique identifier assigned by Flightradar24 to each flight leg.
@@ -439,9 +442,9 @@ type FlightSummaryLight struct {
 	// Hex 24 bit Mode-S identifier expressed in hexadecimal format.
 	Hex *string `json:"hex,omitempty"`
 
-	// LastSeen Datetime when the aircraft was last detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SS).
+	// LastSeen Datetime when the aircraft was last detected for this flight leg (UTC) (YYYY-MM-DDTHH:MM:SSZ).
 	//
-	// Examples: 2023-01-27T05:15:22
+	// Examples: 2023-01-27T05:15:22Z
 	LastSeen *string `json:"last_seen,omitempty"`
 
 	// OperatingAs ICAO code of the airline carrier as derived from flight callsign.
@@ -664,10 +667,10 @@ type Runway struct {
 	Length  *int `json:"length,omitempty"`
 	Surface *struct {
 		// Description Human-readable surface description.
-		Description string `json:"description"`
+		Description *string `json:"description,omitempty"`
 
 		// Type Surface type code (e.g., ASPHH for asphalt).
-		Type string `json:"type"`
+		Type *string `json:"type,omitempty"`
 	} `json:"surface,omitempty"`
 
 	// ThrCoordinates Threshold coordinates (latitude, longitude) in decimal degrees.
@@ -773,6 +776,9 @@ type PaymentRequired struct {
 	Message *string `json:"message,omitempty"`
 }
 
+// RateLimitExceeded defines model for RateLimitExceeded.
+type RateLimitExceeded interface{}
+
 // Unauthorized defines model for Unauthorized.
 type Unauthorized struct {
 	Details *string `json:"details,omitempty"`
@@ -790,10 +796,10 @@ type GetApiFlightSummaryCountParams struct {
 	// FlightIds Comma-separated fr24_ids (maximum 15 IDs). Cannot be combined with flight_datetime.
 	FlightIds *FlightIdsFlightSummary `form:"flight_ids,omitempty" json:"flight_ids,omitempty"`
 
-	// FlightDatetimeFrom Flight date lower range (YYYY-MM-DDTHH:MM:SS), uses first_seen. Cannot be combined with flight_ids. The maximum permitted date range is 14 days.
+	// FlightDatetimeFrom Flight date lower range (YYYY-MM-DDTHH:MM:SSZ), uses first_seen. Cannot be combined with flight_ids. The maximum permitted date range is 14 days.
 	FlightDatetimeFrom *FlightDateTimeFrom `form:"flight_datetime_from,omitempty" json:"flight_datetime_from,omitempty"`
 
-	// FlightDatetimeTo Flight date upper range (YYYY-MM-DDTHH:MM:SS), uses first_seen. Cannot be combined with flight_ids.
+	// FlightDatetimeTo Flight date upper range (YYYY-MM-DDTHH:MM:SSZ), uses first_seen. Cannot be combined with flight_ids.
 	FlightDatetimeTo *FlightDateTimeTo `form:"flight_datetime_to,omitempty" json:"flight_datetime_to,omitempty"`
 
 	// Flights Flight numbers (comma-separated values, max 15).
@@ -834,10 +840,10 @@ type GetFlightSummaryFullParams struct {
 	// FlightIds Comma-separated fr24_ids (maximum 15 IDs). Cannot be combined with flight_datetime.
 	FlightIds *FlightIdsFlightSummary `form:"flight_ids,omitempty" json:"flight_ids,omitempty"`
 
-	// FlightDatetimeFrom Flight date lower range (YYYY-MM-DDTHH:MM:SS), uses first_seen. Cannot be combined with flight_ids. The maximum permitted date range is 14 days.
+	// FlightDatetimeFrom Flight date lower range (YYYY-MM-DDTHH:MM:SSZ), uses first_seen. Cannot be combined with flight_ids. The maximum permitted date range is 14 days.
 	FlightDatetimeFrom *FlightDateTimeFrom `form:"flight_datetime_from,omitempty" json:"flight_datetime_from,omitempty"`
 
-	// FlightDatetimeTo Flight date upper range (YYYY-MM-DDTHH:MM:SS), uses first_seen. Cannot be combined with flight_ids.
+	// FlightDatetimeTo Flight date upper range (YYYY-MM-DDTHH:MM:SSZ), uses first_seen. Cannot be combined with flight_ids.
 	FlightDatetimeTo *FlightDateTimeTo `form:"flight_datetime_to,omitempty" json:"flight_datetime_to,omitempty"`
 
 	// Flights Flight numbers (comma-separated values, max 15).
@@ -887,10 +893,10 @@ type GetFlightSummaryLightParams struct {
 	// FlightIds Comma-separated fr24_ids (maximum 15 IDs). Cannot be combined with flight_datetime.
 	FlightIds *FlightIdsFlightSummary `form:"flight_ids,omitempty" json:"flight_ids,omitempty"`
 
-	// FlightDatetimeFrom Flight date lower range (YYYY-MM-DDTHH:MM:SS), uses first_seen. Cannot be combined with flight_ids. The maximum permitted date range is 14 days.
+	// FlightDatetimeFrom Flight date lower range (YYYY-MM-DDTHH:MM:SSZ), uses first_seen. Cannot be combined with flight_ids. The maximum permitted date range is 14 days.
 	FlightDatetimeFrom *FlightDateTimeFrom `form:"flight_datetime_from,omitempty" json:"flight_datetime_from,omitempty"`
 
-	// FlightDatetimeTo Flight date upper range (YYYY-MM-DDTHH:MM:SS), uses first_seen. Cannot be combined with flight_ids.
+	// FlightDatetimeTo Flight date upper range (YYYY-MM-DDTHH:MM:SSZ), uses first_seen. Cannot be combined with flight_ids.
 	FlightDatetimeTo *FlightDateTimeTo `form:"flight_datetime_to,omitempty" json:"flight_datetime_to,omitempty"`
 
 	// Flights Flight numbers (comma-separated values, max 15).
@@ -946,7 +952,7 @@ type GetFlightsTracksParams struct {
 
 // GetHistoricalFlightEventsFullParams defines parameters for GetHistoricalFlightEventsFull.
 type GetHistoricalFlightEventsFullParams struct {
-	// FlightIds Comma-separated fr24_ids (maximum 15 IDs). Cannot be combined with event_datetime.
+	// FlightIds Comma-separated fr24_ids (maximum 15 IDs).
 	FlightIds *FlightIdsFlightEvents `form:"flight_ids,omitempty" json:"flight_ids,omitempty"`
 
 	// EventTypes Event types to filter by (comma-separated values). Available values all, gate_departure, takeoff, cruising, airspace_transition, descent, landed, gate_arrival.
@@ -958,7 +964,7 @@ type GetHistoricalFlightEventsFullParams struct {
 
 // GetHistoricalFlightEventsLightParams defines parameters for GetHistoricalFlightEventsLight.
 type GetHistoricalFlightEventsLightParams struct {
-	// FlightIds Comma-separated fr24_ids (maximum 15 IDs). Cannot be combined with event_datetime.
+	// FlightIds Comma-separated fr24_ids (maximum 15 IDs).
 	FlightIds *FlightIdsFlightEvents `form:"flight_ids,omitempty" json:"flight_ids,omitempty"`
 
 	// EventTypes Event types to filter by (comma-separated values). Available values all, gate_departure, takeoff, cruising, airspace_transition, descent, landed, gate_arrival.
@@ -4595,7 +4601,10 @@ type GetApiFlightSummaryCountResponse struct {
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *Count
 	// JSON400 the response for an HTTP 400 `application/json` response
-	JSON400 *UsageLogSummaryValidationError
+	JSON400 *struct {
+		Details *string `json:"details,omitempty"`
+		Message *string `json:"message,omitempty"`
+	}
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *Unauthorized
 	// JSON402 the response for an HTTP 402 `application/json` response
@@ -4608,7 +4617,10 @@ func (r GetApiFlightSummaryCountResponse) GetJSON200() *Count {
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
-func (r GetApiFlightSummaryCountResponse) GetJSON400() *UsageLogSummaryValidationError {
+func (r GetApiFlightSummaryCountResponse) GetJSON400() *struct {
+	Details *string `json:"details,omitempty"`
+	Message *string `json:"message,omitempty"`
+} {
 	return r.JSON400
 }
 
@@ -5026,7 +5038,10 @@ type GetApiHistoricFlightPositionsCountResponse struct {
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *Count
 	// JSON400 the response for an HTTP 400 `application/json` response
-	JSON400 *UsageLogSummaryValidationError
+	JSON400 *struct {
+		Details *string `json:"details,omitempty"`
+		Message *string `json:"message,omitempty"`
+	}
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *Unauthorized
 	// JSON402 the response for an HTTP 402 `application/json` response
@@ -5039,7 +5054,10 @@ func (r GetApiHistoricFlightPositionsCountResponse) GetJSON200() *Count {
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
-func (r GetApiHistoricFlightPositionsCountResponse) GetJSON400() *UsageLogSummaryValidationError {
+func (r GetApiHistoricFlightPositionsCountResponse) GetJSON400() *struct {
+	Details *string `json:"details,omitempty"`
+	Message *string `json:"message,omitempty"`
+} {
 	return r.JSON400
 }
 
@@ -5232,7 +5250,10 @@ type GetApiLiveFlightPositionsCountResponse struct {
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *Count
 	// JSON400 the response for an HTTP 400 `application/json` response
-	JSON400 *UsageLogSummaryValidationError
+	JSON400 *struct {
+		Details *string `json:"details,omitempty"`
+		Message *string `json:"message,omitempty"`
+	}
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *Unauthorized
 	// JSON402 the response for an HTTP 402 `application/json` response
@@ -5245,7 +5266,10 @@ func (r GetApiLiveFlightPositionsCountResponse) GetJSON200() *Count {
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
-func (r GetApiLiveFlightPositionsCountResponse) GetJSON400() *UsageLogSummaryValidationError {
+func (r GetApiLiveFlightPositionsCountResponse) GetJSON400() *struct {
+	Details *string `json:"details,omitempty"`
+	Message *string `json:"message,omitempty"`
+} {
 	return r.JSON400
 }
 
@@ -5994,7 +6018,10 @@ func ParseGetApiFlightSummaryCountResponse(rsp *http.Response) (*GetApiFlightSum
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest UsageLogSummaryValidationError
+		var dest struct {
+			Details *string `json:"details,omitempty"`
+			Message *string `json:"message,omitempty"`
+		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -6309,7 +6336,10 @@ func ParseGetApiHistoricFlightPositionsCountResponse(rsp *http.Response) (*GetAp
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest UsageLogSummaryValidationError
+		var dest struct {
+			Details *string `json:"details,omitempty"`
+			Message *string `json:"message,omitempty"`
+		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -6460,7 +6490,10 @@ func ParseGetApiLiveFlightPositionsCountResponse(rsp *http.Response) (*GetApiLiv
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest UsageLogSummaryValidationError
+		var dest struct {
+			Details *string `json:"details,omitempty"`
+			Message *string `json:"message,omitempty"`
+		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
