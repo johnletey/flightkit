@@ -923,8 +923,10 @@ type ApiCoordinates struct {
 // ApiDatis ATIS is a service that continuously broadcasts aeronautical information around the airport. D-ATIS is the text transcription of the information provided by it.
 type ApiDatis struct {
 	// Body Example: -  JFK ATIS INFO O 1051Z. 06011KT 10SM FEW075 SCT100 BKN210 16/07 A3008 (THREE ZERO ZERO EIGHT). APPROACH IN USE ILS RY 4R, ILS RY 4L. DEPG RY 4L. NOTAMS... JFK VOR OTS. FDC NOTAMS NATIONALLY UNAVAILABLE UFN. BIRD ACTIVITY VICINITY ARPT. NUM CRANES OPERATING AT JFK. READBACK ALL RWY HOLD SHORT INSTRUCTIONS. ...ADVS YOU HAVE INFO O.
-	Body      *string `json:"body,omitempty"`
-	DatisTime *int64  `json:"datisTime,omitempty"`
+	Body *string `json:"body,omitempty"`
+
+	// DatisTime Example: 2021-05-29T04:10:54Z
+	DatisTime *time.Time `json:"datisTime,omitempty"`
 
 	// Header Example: AD JFK /OS CO1051
 	Header *string `json:"header,omitempty"`
@@ -1151,12 +1153,18 @@ type ApiMetar struct {
 type ApiNatPacTrack struct {
 	// Identifier Example: EGGX
 	Identifier *string `json:"identifier,omitempty"`
-	IssuedDate *int64  `json:"issuedDate,omitempty"`
+
+	// IssuedDate Example: 2021-03-20T10:25:00Z
+	IssuedDate *time.Time `json:"issuedDate,omitempty"`
 
 	// Track Example: A
-	Track      *string             `json:"track,omitempty"`
-	ValidFrom  *int64              `json:"validFrom,omitempty"`
-	ValidUntil *int64              `json:"validUntil,omitempty"`
+	Track *string `json:"track,omitempty"`
+
+	// ValidFrom Example: 2021-03-20T10:25:00Z
+	ValidFrom *time.Time `json:"validFrom,omitempty"`
+
+	// ValidUntil Example: 2020-05-20T10:25:00Z
+	ValidUntil *time.Time          `json:"validUntil,omitempty"`
 	Waypoints  *[]ApiTrackWaypoint `json:"waypoints,omitempty"`
 }
 
