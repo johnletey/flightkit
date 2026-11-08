@@ -30,9 +30,9 @@ jobs:
             spec_file: openapi.yaml
           - provider: opensky
             spec_url: >-
-              https://raw.githubusercontent.com/api-evangelist/opensky/main/openapi/opensky-flights-api-openapi.yml
-              https://raw.githubusercontent.com/api-evangelist/opensky/main/openapi/opensky-state-vectors-api-openapi.yml
-              https://raw.githubusercontent.com/api-evangelist/opensky/main/openapi/opensky-tracks-api-openapi.yml
+              https://artifacts.apis.io/opensky/openapi/opensky-flights-api-openapi.yml
+              https://artifacts.apis.io/opensky/openapi/opensky-state-vectors-api-openapi.yml
+              https://artifacts.apis.io/opensky/openapi/opensky-tracks-api-openapi.yml
             spec_file: openapi.yaml
           - provider: planefinder
             spec_url: https://api.planefinder.net/docs/api.json
